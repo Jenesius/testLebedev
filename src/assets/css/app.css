@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+
+    --black1:#151419;
+    --black2:linear-gradient(180deg, #1B1A1F 0%, #111013 99.09%);
+
+    --main:#3C59F0;
+
+    --white1:#fff;
+
+    --gray1:#626262;
+}
+p{
+    margin: 0;
+}
+body{
+    margin: 0;
+}
