@@ -33,6 +33,9 @@
     flex-flow: row wrap;
     color: var(--gray1);
 }
+.sort-list-elem>*:last-child{
+    margin-right: 25px;
+}
 .sort-list-elem>*{
     color:var(--gray1);
     margin-right: 10px;

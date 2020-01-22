@@ -2,7 +2,10 @@
     <div class = "app-header">
         <div class = "container app-header-container">
             <h1 class = "app-header-title">ПЁСЕЛЬ</h1>
-            <div class = "app-header-favorite" :class = "{active: true}">
+            <div class = "app-header-favorite"
+                 :class = "{active: true}"
+                @click = "openFavorite"
+            >
                 <p>избранные пёсели</p>
                 <span>&#8659;</span>
             </div>
@@ -12,8 +15,15 @@
 </template>
 
 <script>
+    import router from "../router";
+
     export default {
-        name: "AppHeader"
+        name: "AppHeader",
+        methods:{
+            openFavorite: function(){
+                router.push('/favorite');
+            }
+        },
     }
 </script>
 

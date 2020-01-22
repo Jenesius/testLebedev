@@ -37,7 +37,7 @@
         },
         data: function(){
             return {
-                isActive: Boolean,
+                isActive: false,
             }
         },
         methods:{
@@ -56,6 +56,8 @@
     .sort-bar-panel{
         display: flex;
         justify-content: space-between;
+
+        padding-bottom: 10px;
     }
     .sort-bar-panel>.active:after{
         content: '\2602';
