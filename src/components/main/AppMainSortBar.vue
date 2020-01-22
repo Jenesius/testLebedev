@@ -57,18 +57,28 @@
         display: flex;
         justify-content: space-between;
 
-        padding-bottom: 10px;
+        padding-bottom: 20px;
     }
+    .sort-bar-panel-title:after{
+        margin-left: 5px;
+
+        content: "\f107";
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
     .sort-bar-panel>.active:after{
-        content: '\2602';
+        content: "\f106";
     }
     .sort-bar-panel-title{
         color:var(--white1);
         border-bottom: 1px dashed #FFFFFF;
     }
-    .sort-bar-panel-title:after{
-        content: '\2603';
-    }
+
     .sort-bar-toggle{
         display: flex;
         flex-flow: row nowrap;

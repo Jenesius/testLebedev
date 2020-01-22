@@ -1,7 +1,9 @@
 <template>
     <div class = "app-main">
         <app-main-sort-bar/>
-        <app-main-dogs-list/>
+
+        <router-view name="main"/>
+
     </div>
 </template>
 

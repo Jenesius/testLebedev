@@ -9,27 +9,23 @@
 </template>
 
 <script>
-    import AppDogListElem from "./dogList/AppDogListElem";
+    import AppDogListElem from "./main/dogList/AppDogListElem";
 
     import {mapState} from "vuex";
-
     export default {
-        computed:{
+        name: "AppBreedList",
+
+        computed: {
             ...mapState({
                 dogsList() {
                     return this.$store.state.dogs.dogsList;
                 }
             }),
         },
-        name: "AppMainDogsList",
         components: {AppDogListElem},
     }
 </script>
 
-<style>
-.dog-list{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-}
+<style scoped>
+
 </style>

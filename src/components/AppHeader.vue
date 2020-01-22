@@ -1,13 +1,14 @@
 <template>
     <div class = "app-header">
         <div class = "container app-header-container">
-            <h1 class = "app-header-title">ПЁСЕЛЬ</h1>
+            <h1 class = "app-header-title"
+                @click = "openHome"
+            >ПЁСЕЛЬ</h1>
             <div class = "app-header-favorite"
                  :class = "{active: true}"
                 @click = "openFavorite"
             >
                 <p>избранные пёсели</p>
-                <span>&#8659;</span>
             </div>
         </div>
 
@@ -22,6 +23,9 @@
         methods:{
             openFavorite: function(){
                 router.push('/favorite');
+            },
+            openHome: function () {
+                router.push('/');
             }
         },
     }
@@ -66,6 +70,16 @@
 
         letter-spacing: 0.01em;
 
+    }
+    .app-header-favorite>p:after{
+        margin-left: 10px;
+        content: "\f08a";
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
     .app-header-favorite>img{
         margin-left: 10px;

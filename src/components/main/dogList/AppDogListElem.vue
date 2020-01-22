@@ -1,5 +1,9 @@
 <template>
     <div class = "dog-list-elem" :style = "backgroud">
+        <i class="fa " aria-hidden="true"
+           :class="activeIco"
+           @click = "updateFavorite"
+        />
         <!--<img :src = "urlAvatar" alt = "dog avatar" class = "dog-avatar">-->
         <p class = "dog-name">{{ elem }}</p>
     </div>
@@ -11,20 +15,35 @@
 
     export default {
         props:{
-          elem: String
+          elem: String,
+          isActive: Boolean,
         },
         data: function(){
             return {
                 urlAvatar: String,
             }
         },
+        methods:{
+            updateFavorite: function(){
+                // eslint-disable-next-line no-console
+                console.log('Add in Cashe', this.elem);
+            }
+        },
         computed:{
+            activeIco: function(){
+                if(this.isActive){
+                    return 'fa-heart';
+                } else {
+                    return 'fa-heart-o';
+                }
+            },
             backgroud: function(){
                 return `background: url(${this.urlAvatar}) no-repeat center/cover`;
             }
         },
         name: "AppDogListElem",
         mounted() {
+
             this.urlAvatar = dogsApi.getRandomAvatarBreed(this.elem);
         }
     }
@@ -40,6 +59,15 @@
         width: 367px;
 
         border-radius: 8px;
+    }
+    .dog-list-elem>i{
+        position: absolute;
+        left: 25px;
+        top: 25px;
+
+
+        color:white;
+        font-size: 29px;
     }
     .dog-name{
         position: absolute;

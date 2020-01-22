@@ -1,20 +1,31 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import ViewMain from "../view/ViewMain";
-import AppFavorite from "../components/AppFavorite";
 
-Vue.use(VueRouter)
+import AppMainDogsList from "../components/main/AppMainDogsList";
+import AppFavorite from "../components/AppFavorite";
+import AppBreedList from "../components/AppBreedList"
+
+
+Vue.use(VueRouter);
 
 const routes = [
     {
         path: '/',
-        name: 'home',
-        component: ViewMain
+        components: {
+            'main': AppMainDogsList,
+        }
     },
     {
         path: '/favorite',
-        name: 'favorite',
-        component: AppFavorite
+        components:{
+            'main': AppFavorite,
+        }
+    },
+    {
+        path: '/:bear',
+        components:{
+            'main': AppBreedList,
+        }
     }
 ];
 
