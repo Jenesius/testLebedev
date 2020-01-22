@@ -52,6 +52,6 @@ export default {
     margin: auto;
   }
   body{
-    background-color: #393939;
+    background: linear-gradient(180deg, #1B1A1F 0%, #111013 99.09%);
   }
 </style>

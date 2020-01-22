@@ -12,7 +12,6 @@ const state = {
 //getters
 const getters = {
     listNameBreed(state){
-        // eslint-disable-next-line no-unused-vars
         let _tmp = {};
 
         for(let key in state.dogsList){
@@ -31,35 +30,8 @@ const getters = {
 
 //actions
 const actions = {
-
-
-
-    /*Check status - Success*/
-    addDogList(state){
-
-        // eslint-disable-next-line no-console
-        console.log(dogsApi.listDogs);
-        state.commit('addDogList',dogsApi.listDogs.message );
-
-
-       /*const url = "https://dog.ceo/api/breeds/list/all";
-       return fetch(url, {
-           method: 'GET',
-           headers: {
-               'Access-Control-Allow-Origin':'*',
-               'Content-Type': 'application/json'
-           },
-           mode: 'cors',
-       })
-           .then(response => response.json())
-           .then(result => {
-               // eslint-disable-next-line no-console
-               console.log(result);
-           })
-           .catch(err => {
-               // eslint-disable-next-line no-console
-               console.log(err);
-           })*/
+    addDogList(state) {
+        state.commit('addDogList', dogsApi.listDogs.message);
     }
 };
 
@@ -67,14 +39,9 @@ const actions = {
 const mutations = {
 
     addDogList(state, _list){
-
         // eslint-disable-next-line no-console
-
-
+        console.log(_list);
         state.dogsList = _list;
-
-        // eslint-disable-next-line no-console
-        console.log(state.dogsList);
     }
 };
 

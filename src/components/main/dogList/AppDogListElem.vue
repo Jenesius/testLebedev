@@ -2,7 +2,7 @@
     <div class = "dog-list-elem" :style = "backgroud">
         <i class="fa " aria-hidden="true"
            :class="activeIco"
-           @click = "updateFavorite"
+           @click = "updateFavorite({name:elem, url: urlAvatar})"
         />
         <!--<img :src = "urlAvatar" alt = "dog avatar" class = "dog-avatar">-->
         <p class = "dog-name">{{ elem }}</p>
@@ -12,7 +12,7 @@
 <script>
     import dogsApi from "../../../assets/js/dogsApi";
 
-
+    import {mapMutations} from 'vuex'
     export default {
         props:{
           elem: String,
@@ -24,10 +24,10 @@
             }
         },
         methods:{
-            updateFavorite: function(){
-                // eslint-disable-next-line no-console
-                console.log('Add in Cashe', this.elem);
-            }
+            ...mapMutations({
+                updateFavorite: 'favorite/update'
+            }),
+
         },
         computed:{
             activeIco: function(){

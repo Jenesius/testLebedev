@@ -1,10 +1,11 @@
 <template>
     <div class = "sort-list-elem">
         <p class = "sort-list-elem-title">{{ title }}</p>
-        <span class = "sort-list-elem-breed"
+        <a class = "sort-list-elem-breed"
             v-for = "(breed, index) in elem"
             :key = "index"
-        >{{breed}}</span>
+           :href = "breed"
+        >{{breed}}</a>
     </div>
 </template>
 
