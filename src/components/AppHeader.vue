@@ -1,10 +1,13 @@
 <template>
     <div class = "app-header">
-        <h1 class = "app-header-title">ПЁСЕЛЬ</h1>
-        <div class = "app-header-favorite" :class = "{active: true}">
-            <p>избранные пёсели</p>
-            <img src = "#" alt = "image-favorite-dogs">
+        <div class = "container app-header-container">
+            <h1 class = "app-header-title">ПЁСЕЛЬ</h1>
+            <div class = "app-header-favorite" :class = "{active: true}">
+                <p>избранные пёсели</p>
+                <img src = "#" alt = "image-favorite-dogs">
+            </div>
         </div>
+
     </div>
 </template>
 
@@ -16,17 +19,16 @@
 
 <style>
     .app-header{
+        background: #151419;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.55);
+    }
+    .app-header-container{
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
         align-items: center;
 
         height:100px;
-
-        padding: 0 60px;
-
-        background: #151419;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.55);
     }
     .app-header>.active{
         color:var(--white1);

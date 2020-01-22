@@ -1,6 +1,11 @@
 <template>
   <div id="app">
     <app-header/>
+
+    <view-main>
+
+    </view-main>
+
   </div>
 </template>
 
@@ -8,9 +13,11 @@
 
 
 import AppHeader from "./components/AppHeader";
+import ViewMain from "./view/ViewMain";
 export default {
   name: 'app',
   components: {
+    ViewMain,
     AppHeader
 
   }
@@ -27,4 +34,11 @@ export default {
     text-align: center;
     color: #2c3e50;
     }
+  .container{
+    padding: 0 60px;
+    margin: auto;
+  }
+  body{
+    background-color: #393939;
+  }
 </style>
