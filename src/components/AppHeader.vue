@@ -4,7 +4,7 @@
             <h1 class = "app-header-title">ПЁСЕЛЬ</h1>
             <div class = "app-header-favorite" :class = "{active: true}">
                 <p>избранные пёсели</p>
-                <img src = "#" alt = "image-favorite-dogs">
+                <span>&#8659;</span>
             </div>
         </div>
 

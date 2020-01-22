@@ -38,9 +38,10 @@ export default {
 
 <style>
     @import "assets/css/app.css";
+    @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap');
 
     #app{
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+      font-family: 'IBM Plex Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;

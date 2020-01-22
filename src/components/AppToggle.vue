@@ -34,7 +34,9 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: #ccc;
+
+        border: 2px solid rgb(175, 177, 188);
+
         -webkit-transition: .4s;
         transition: .4s;
     }
@@ -42,10 +44,10 @@
     .slider:before {
         position: absolute;
         content: "";
-        height: 10px;
-        width: 10px;
-        left: 4px;
-        bottom: 2px;
+        height: 9px;
+        width: 9px;
+        left: 3px;
+        bottom: 1px;
         background-color: white;
         -webkit-transition: .4s;
         transition: .4s;

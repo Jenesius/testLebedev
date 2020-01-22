@@ -1,21 +1,32 @@
 <template>
-    <div class = "dog-list-elem">
-        <img :src = "dogUrl" alt = "dog avatar" class = "dog-avatar">
-        <p class = "dog-name">{{ dogName }}</p>
+    <div class = "dog-list-elem" :style = "backgroud">
+        <!--<img :src = "urlAvatar" alt = "dog avatar" class = "dog-avatar">-->
+        <p class = "dog-name">{{ elem }}</p>
     </div>
 </template>
 
 <script>
+    import dogsApi from "../../../assets/js/dogsApi";
+
+
     export default {
         props:{
-          elem:{
-              dogUrl:"",
-              dogName:"",
-
-              isLiked:false,
-          }
+          elem: String
         },
-        name: "AppDogListElem"
+        data: function(){
+            return {
+                urlAvatar: String,
+            }
+        },
+        computed:{
+            backgroud: function(){
+                return `background: url(${this.urlAvatar}) no-repeat center/cover`;
+            }
+        },
+        name: "AppDogListElem",
+        mounted() {
+            this.urlAvatar = dogsApi.getRandomAvatarBreed(this.elem);
+        }
     }
 </script>
 
@@ -23,7 +34,7 @@
     .dog-list-elem{
         position: relative;
 
-        margin-top: 30px;
+        margin: 0 10px 30px 10px;
 
         height: 290px;
         width: 367px;

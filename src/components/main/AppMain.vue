@@ -1,7 +1,7 @@
 <template>
     <div class = "app-main">
         <app-main-sort-bar/>
-        <!--<app-main-dogs-list/>-->
+        <app-main-dogs-list/>
     </div>
 </template>
 
