@@ -14,12 +14,24 @@
 
 import AppHeader from "./components/AppHeader";
 import ViewMain from "./view/ViewMain";
+
+import {mapActions} from 'vuex';
+
 export default {
   name: 'app',
   components: {
     ViewMain,
     AppHeader
 
+  },
+  methods:{
+    ...mapActions({
+      addDogList: 'dogs/addDogList',
+    })
+  },
+  mounted:function(){
+
+    this.addDogList();
   }
 }
 </script>

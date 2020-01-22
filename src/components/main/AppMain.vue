@@ -1,7 +1,7 @@
 <template>
     <div class = "app-main">
         <app-main-sort-bar/>
-        <app-main-dogs-list/>
+        <!--<app-main-dogs-list/>-->
     </div>
 </template>
 
@@ -10,6 +10,7 @@
     import AppMainDogsList from "./AppMainDogsList";
     export default {
         name: "AppMain",
+        // eslint-disable-next-line vue/no-unused-components
         components: {AppMainDogsList, AppMainSortBar}
     }
 </script>
