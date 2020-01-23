@@ -31,7 +31,16 @@ const getters = {
 //actions
 const actions = {
     addDogList(state) {
-        state.commit('addDogList', dogsApi.listDogs.message);
+        dogsApi.getListDogs()
+            .then(result => {
+                state.commit('addDogList', result);
+            })
+            // eslint-disable-next-line no-unused-vars
+            .catch(err => {
+                // eslint-disable-next-line no-undef
+                alter('Yps');
+            })
+
     }
 };
 
@@ -39,8 +48,7 @@ const actions = {
 const mutations = {
 
     addDogList(state, _list){
-        // eslint-disable-next-line no-console
-        console.log(_list);
+
         state.dogsList = _list;
     }
 };

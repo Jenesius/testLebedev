@@ -3,7 +3,7 @@
         <app-dog-list-elem
                 v-for="(elem, index) in dogsList"
                 :key = "index"
-                :elem = "index"
+                :name = "index"
         />
     </div>
 </template>

@@ -1,9 +1,11 @@
 <template>
     <div class = "app-favorite-breed">
         <app-dog-list-elem
-                v-for="(elem, index) in favoriteArray"
-                :key = "index"
-                :elem = "index"
+                v-for="(elem) in favoriteArray"
+                :key = "elem.url"
+
+                :url = "elem.url"
+                :name = "elem.name"
         />
     </div>
 </template>
@@ -21,14 +23,13 @@
                 }
             })
         },
-        mounted() {
-            // eslint-disable-next-line no-console
-            console.log(this.favoriteArray);
-        },
         components: {AppDogListElem},
     }
 </script>
 
 <style scoped>
-
+.app-favorite-breed{
+    display: flex;
+    flex-flow: row wrap;
+}
 </style>

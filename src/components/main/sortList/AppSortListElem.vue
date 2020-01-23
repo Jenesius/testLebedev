@@ -1,18 +1,21 @@
 <template>
     <div class = "sort-list-elem">
         <p class = "sort-list-elem-title">{{ title }}</p>
-        <a class = "sort-list-elem-breed"
-            v-for = "(breed, index) in elem"
-            :key = "index"
-           :href = "breed"
-        >{{breed}}</a>
+        <span class = "sort-list-elem-breed"
+              v-for = "(breed, index) in elem"
+              :key = "index"
+
+        >
+            <router-link :to = "breed">{{breed}}</router-link>
+        </span>
+
     </div>
 </template>
 
 <script>
     export default {
         props:{
-            elem:[],
+            elem:{},
         },
         data: function(){
             return {
@@ -47,6 +50,8 @@
     justify-content: center;
     align-items: center;
 
+    text-decoration: none;
+
 
     border: 1px solid #626262;
     border-radius: 20px;
@@ -56,6 +61,10 @@
 
 
 
+}
+.sort-list-elem>span>a{
+    text-decoration: none;
+    color:var(--gray1);
 }
 .sort-list-elem-title{
     font-style: normal;

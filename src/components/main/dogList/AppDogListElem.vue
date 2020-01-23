@@ -2,10 +2,9 @@
     <div class = "dog-list-elem" :style = "backgroud">
         <i class="fa " aria-hidden="true"
            :class="activeIco"
-           @click = "updateFavorite({name:elem, url: urlAvatar})"
+           @click = "updateFavorite({name:name, url: urlAvatar})"
         />
-        <!--<img :src = "urlAvatar" alt = "dog avatar" class = "dog-avatar">-->
-        <p class = "dog-name">{{ elem }}</p>
+        <p class = "dog-name">{{ name }}</p>
     </div>
 </template>
 
@@ -15,8 +14,14 @@
     import {mapMutations} from 'vuex'
     export default {
         props:{
-          elem: String,
-          isActive: Boolean,
+            name: String,
+            url: {
+                type: String,
+            },
+            isFavorite: {
+                type: Boolean,
+                default: false,
+            },
         },
         data: function(){
             return {
@@ -31,7 +36,7 @@
         },
         computed:{
             activeIco: function(){
-                if(this.isActive){
+                if(this.isFavorite){
                     return 'fa-heart';
                 } else {
                     return 'fa-heart-o';
@@ -42,9 +47,13 @@
             }
         },
         name: "AppDogListElem",
-        mounted() {
+        async mounted() {
+            this.urlAvatar = this.url;
 
-            this.urlAvatar = dogsApi.getRandomAvatarBreed(this.elem);
+            if (this.urlAvatar === undefined){
+
+                this.urlAvatar = await dogsApi.getRandomAvatarBreed(this.name);
+            }
         }
     }
 </script>

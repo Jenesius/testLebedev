@@ -45,6 +45,9 @@
                 this.isActive = !this.isActive;
             }
         },
+        mounted() {
+
+        },
         components: {AppSortListElem, AppToggle}
     }
 </script>
