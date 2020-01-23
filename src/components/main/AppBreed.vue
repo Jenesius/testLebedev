@@ -6,18 +6,35 @@
                 :name = "$route.params.bear"
                 :url = "elem"
         />
+        <app-preloader></app-preloader>
     </div>
 </template>
 
 <script>
     import AppDogListElem from "./dogList/AppDogListElem";
     import store from '../../store'
+    import AppPreloader from "../AppPreloader";
 
     export default {
         name: "AppBreedList",
         computed: {
             dogsList() {
                 return store.state.breed.breedList;
+            }
+        },
+        methods:{
+            scroll() {
+
+
+                window.onscroll = () => {
+                    let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight
+
+                    if (bottomOfWindow) {
+
+                        store.dispatch('breed/addList');
+
+                    }
+                }
             }
         },
         beforeRouteEnter (to, from, next) {
@@ -33,7 +50,10 @@
             store.commit('breed/setBreed', '');
             next();
         },
-        components: {AppDogListElem},
+        mounted() {
+            this.scroll();
+        },
+        components: {AppDogListElem, AppPreloader},
     }
 </script>
 

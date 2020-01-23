@@ -20,7 +20,11 @@
                 return this.$store.state.favorite.favoriteArray;
             }
         },
+        methods: {
+
+        },
         components: {AppDogListElem},
+
     }
 </script>
 

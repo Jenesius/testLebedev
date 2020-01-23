@@ -8,7 +8,14 @@ class DogsApi{
                    return res.json();
                })
                .then(res => {
-                   resolve(res.message);
+
+                   let _arr = [];
+
+                   for(let key in res.message){
+                       _arr.push(key);
+                   }
+
+                   resolve(_arr);
                })
                .catch(err => {
                    reject(err);

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" >
     <app-header/>
 
     <view-main>
@@ -27,7 +27,11 @@ export default {
   methods:{
     ...mapActions({
       addDogList: 'dogs/addDogList',
-    })
+    }),
+    scroll: function(){
+      // eslint-disable-next-line no-console
+      console.log('++++');
+    },
   },
   mounted:function(){
 

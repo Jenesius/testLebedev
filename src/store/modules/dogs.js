@@ -5,6 +5,9 @@ import dogsApi from "../../assets/js/dogsApi";
 //state
 const state = {
     dogsList:{},
+    fullDogsList:{},
+
+    currentChunk: 0,
 };
 
 //getters
@@ -12,30 +15,44 @@ const getters = {
     listNameBreed(state){
         let _tmp = {};
 
-        for(let key in state.dogsList){
-
-            let title = key[0];
+        state.dogsList.forEach(elem => {
+            let title = elem[0];
 
             if (!_tmp.hasOwnProperty(title)){
                 _tmp[title] = [];
             }
-            _tmp[title].push(key);
-        }
+            _tmp[title].push(elem);
+        });
+
         return _tmp;
     }
 };
 
 //actions
 const actions = {
-    addDogList(state) {
+    // eslint-disable-next-line no-unused-vars
+    addDogList({dispatch, commit, state}) {
+
+        commit('setChunk', 0);
+
         dogsApi.getListDogs()
             .then(result => {
-                state.commit('addDogList', result);
+                commit('setFullDogList', result);
+                dispatch('addList');
             })
-            .catch(err => {
-                // eslint-disable-next-line no-console
-                console.log(err);
-            })
+    },
+
+    addList({ commit, state}){
+
+        setTimeout(()=> {
+            let _tmp = state.currentChunk;
+
+
+            commit('setChunk', (_tmp + 1));
+            commit('addNextChunk');
+        }, 1000);
+
+
     }
 };
 
@@ -43,6 +60,15 @@ const actions = {
 const mutations = {
     addDogList(state, _list){
         state.dogsList = _list;
+    },
+    setFullDogList(state, _list){
+        state.fullDogsList = _list;
+    },
+    setChunk(state, val){
+        state.currentChunk = val;
+    },
+    addNextChunk(state){
+        state.dogsList = state.fullDogsList.slice(0, Math.min(state.currentChunk * 20, state.fullDogsList.length));
     }
 };
 
