@@ -54,17 +54,21 @@ export default {
       min-height: 100vh;
     }
     .container{
-        width: 1280px;
-
+        max-width: 1280px;
+        --count-dogs-list-elems: 3;
         margin: auto;
+      padding: 0 60px;
     }
-  @media screen and (max-width: 1300px){
+  @media screen and (max-width: 1279px){
     .container{
-      width: 800px;
+      width: 920px;
+      --count-dogs-list-elems: 2;
+
     }
   }
-    @media screen and (max-width: 820px){
+    @media screen and (max-width: 920px){
       .container{
+        --count-dogs-list-elems:1;
         padding: 0 20px;
         width: 100%;
       }

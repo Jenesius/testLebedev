@@ -16,11 +16,11 @@
 <style scoped>
     .app-preload{
         display: flex;
-
+        align-items: center;
         justify-content: center;
 
         width: 100%;
-        height: 60px;
+        height: 70px;
     }
 
     @keyframes freez {

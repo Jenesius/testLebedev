@@ -3,8 +3,8 @@
         v-on:scroll="scroll"
     >
         <app-dog-list-elem
-                v-for="(elem, index) in dogsList"
-                :key = "index"
+                v-for="(elem) in dogsList"
+                :key = "elem"
                 :name = "elem"
         />
         <app-preloader></app-preloader>
@@ -14,13 +14,14 @@
 <script>
     import AppDogListElem from "./dogList/AppDogListElem";
     import store from "../../store";
+    import {mapGetters} from 'vuex';
     import AppPreloader from "../AppPreloader";
 
     export default {
         computed:{
-            dogsList() {
-                return this.$store.state.dogs.dogsList;
-            }
+            ...mapGetters({
+                dogsList: 'dogs/customDogsList'
+            }),
         },
         methods:{
             scroll() {
@@ -48,5 +49,8 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+}
+.dog-list .dog-list-elem:first-child{
+    width: 100%;
 }
 </style>

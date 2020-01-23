@@ -11,7 +11,9 @@
                     v-if = "title"
                 >{{ title }}</p>
             </div>
-            <div class = "sort-bar-toggle">
+            <div class = "sort-bar-toggle"
+                v-if = "$route.path === '/'"
+            >
                 <p>Сортировать по породе</p>
                 <app-toggle/>
             </div>
@@ -58,16 +60,19 @@
 
 <style>
     .sort-bar{
-        padding:44px 0;
+        padding:44px 0 14px 0;
+
     }
 
     .sort-bar-panel{
         display: flex;
         justify-content: space-between;
+        min-height: 28px;
     }
     .sort-bar-panel-title{
         display: flex;
         flex-flow: row nowrap;
+        cursor: pointer;
     }
     .sort-bar-panel-title-button{
         border-bottom: 1px dashed #FFFFFF;
@@ -90,7 +95,7 @@
         justify-content: center;
 
         margin-left: 21px;
-        border: 1px solid #3C59F0;
+        border: 1px solid var(--main);
         padding: 4px 12px;
 
         color:var(--main);

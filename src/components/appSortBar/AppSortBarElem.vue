@@ -40,7 +40,7 @@
 
     color:var(--gray1);
 }
-.sort-list-elem>span{
+.sort-list-elem-breed{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,9 +55,14 @@
 
     border-radius: 20px;
 }
-.sort-list-elem>span>a{
+.sort-list-elem-breed>a{
     text-decoration: none;
     color:var(--gray1);
+
+    transition: .2s;
+}
+.sort-list-elem-breed>a:hover{
+    color:#b4a8b3;
 }
 .sort-list-elem-title{
     font-style: normal;

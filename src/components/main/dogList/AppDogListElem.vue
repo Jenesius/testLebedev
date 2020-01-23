@@ -55,12 +55,18 @@
     .dog-list-elem{
         position: relative;
 
-        margin: 0 10px 30px 10px;
 
+        margin-top: 30px;
+        width: calc( 100% / var(--count-dogs-list-elems)  - 23px);
         height: 290px;
-        width: 367px;
+
 
         border-radius: 8px;
+    }
+    @media screen and (max-width: 920px) {
+        .dog-list-elem{
+            width: 100%;
+        }
     }
     .dog-list-elem>i{
         position: absolute;
@@ -81,5 +87,8 @@
         line-height: 28px;
 
         color: var(--white1);
+    }
+    .dog-name:first-letter {
+        text-transform:capitalize;
     }
 </style>

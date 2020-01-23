@@ -3,7 +3,7 @@
         <div class = "container app-header-container">
             <h1 class = "app-header-title" @click = "$router.push('/')">ПЁСЕЛЬ</h1>
             <div class = "app-header-favorite"
-                 :class = "{active: ($router.currentRoute.path === 'favorite') }"
+                 :class = "{active: (this.$route.path === '/favorite')}"
                 @click = "$router.push('/favorite')"
             >
                 <p>избранные пёсели</p>
@@ -15,6 +15,7 @@
 <script>
     export default {
         name: "AppHeader",
+
     }
 </script>
 
@@ -31,7 +32,7 @@
 
         height:100px;
     }
-    .app-header>.active{
+    .app-header .active{
         color:var(--white1);
     }
     .app-header-title{

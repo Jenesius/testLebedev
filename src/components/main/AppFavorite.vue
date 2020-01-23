@@ -32,5 +32,8 @@
 .app-favorite-breed{
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-between;
+
+    padding-top: 116px;
 }
 </style>
