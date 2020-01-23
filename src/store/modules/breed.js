@@ -4,7 +4,7 @@ import dogsApi from "../../assets/js/dogsApi";
 
 //state
 const state = {
-    title: String,
+    breed: '',
     breedList: [],
 };
 

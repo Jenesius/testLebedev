@@ -1,6 +1,8 @@
 <template>
     <div class = "app-main">
-        <app-main-sort-bar/>
+        <app-main-sort-bar
+                v-show ="$router.currentRoute.path !== '/favorite'"
+        />
 
         <router-view name="main"/>
 

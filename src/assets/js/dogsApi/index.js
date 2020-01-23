@@ -15,7 +15,6 @@ class DogsApi{
                })
         });
     }
-    // eslint-disable-next-line no-unused-vars
     async getRandomAvatarBreed(breed){
         let _url = `https://dog.ceo/api/breed/${breed}/images/random`;
 
@@ -27,23 +26,9 @@ class DogsApi{
             return  _tmp.message;
 
         } else {
-            // eslint-disable-next-line no-console
             //console.error('getRandomAvatar');
         }
 
-
-        /*return new Promise((resolve, reject) => {
-            fetch(_url)
-                .then(res => {
-                    return res.json();
-                })
-                .then(res => {
-                    resolve(res);
-                })
-                .catch(err => {
-                    reject(err);
-                })
-        })*/
     }
     getListAvatarBreed(breed){
         let _url = `https://dog.ceo/api/breed/${breed}/images`;

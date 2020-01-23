@@ -18,25 +18,24 @@
             url: {
                 type: String,
             },
-            isFavorite: {
-                type: Boolean,
-                default: false,
-            },
         },
         data: function(){
             return {
                 urlAvatar: String,
+                isFavorite: false,
             }
         },
         methods:{
             ...mapMutations({
-                updateFavorite: 'favorite/update'
+                updateFavorite: 'favorite/update',
             }),
-
         },
         computed:{
             activeIco: function(){
-                if(this.isFavorite){
+                let _tmp =this.$store.state.favorite.favoriteArray.findIndex(elem => elem.url === this.urlAvatar);
+
+
+                if(_tmp !== -1){
                     return 'fa-heart';
                 } else {
                     return 'fa-heart-o';

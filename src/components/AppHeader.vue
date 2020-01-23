@@ -5,7 +5,7 @@
                 @click = "openHome"
             >ПЁСЕЛЬ</h1>
             <div class = "app-header-favorite"
-                 :class = "{active: true}"
+                 :class = "{active: ($router.currentRoute.path === 'favorite') }"
                 @click = "openFavorite"
             >
                 <p>избранные пёсели</p>

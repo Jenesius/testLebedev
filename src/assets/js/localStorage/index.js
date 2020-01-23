@@ -8,8 +8,15 @@ export default new class localStorage{
         this._update();
     }
     _update(){
-        try{
+
             let _tmp =  window.localStorage.getItem('favoriteDogs').split('@');
+
+
+            if (_tmp[0] === "" || _tmp.length === 0){
+                this._obj = [];
+                return;
+            }
+
 
             this._obj = _tmp.map((elem) => {
                 let _tmp = elem.split(',');
@@ -19,10 +26,6 @@ export default new class localStorage{
                     url: _tmp[1]
                 };
             });
-        } catch (e) {
-            this._obj = [];
-        }
-
     }
     _arrToString(){
         let result = '';
@@ -37,11 +40,9 @@ export default new class localStorage{
     }
 
     _checkIn(newFavorite){
-        // eslint-disable-next-line no-console
         return this._obj.findIndex((elem) => {
             return elem.url === newFavorite.url;
         });
-
     }
 
     addFavorite(newFavorite){
@@ -53,23 +54,15 @@ export default new class localStorage{
     removeFavorite(newFavorite){
         let pos = this._checkIn(newFavorite);
 
-
         if (pos !== -1){
 
-            // eslint-disable-next-line no-console
-
             this._obj.splice(pos, 1);
-
-
             let _tmp = this._arrToString();
-
 
             let _tmp1 = '';
             if (_tmp[_tmp.length - 1] === '@' )
                 _tmp1 = _tmp.slice(0, -1);
 
-            // eslint-disable-next-line no-console
-            console.log(_tmp1);
             window.localStorage.setItem('favoriteDogs', _tmp1);
         }
     }

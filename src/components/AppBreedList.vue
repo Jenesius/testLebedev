@@ -12,7 +12,7 @@
 <script>
     import AppDogListElem from "./main/dogList/AppDogListElem";
 
-    import {mapState, mapActions} from "vuex";
+    import {mapState, mapActions, mapMutations} from "vuex";
 
     import store from '../store'
 
@@ -28,8 +28,11 @@
         },
         methods:{
           ...mapActions({
-              updateBreedList: 'breed/updateList'
-          })
+              updateBreedList: 'breed/updateList',
+          }),
+            ...mapMutations({
+                setBreed: 'breed/setBreed',
+            })
         },
         beforeRouteEnter (to, from, next) {
 
@@ -40,6 +43,10 @@
         beforeRouteUpdate (to, from, next) {
             this.updateBreedList(to.params.bear);
             next();
+        },
+        beforeRouteLeave(to, from, next) {
+          this.setBreed('');
+          next();
         },
         components: {AppDogListElem},
     }
