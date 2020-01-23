@@ -1,5 +1,4 @@
 "use strict";
-
 import dogsApi from "../../assets/js/dogsApi";
 
 //state
@@ -16,18 +15,13 @@ const getters = {
 //actions
 const actions = {
 
-
     updateList(state, breed){
-
-        // eslint-disable-next-line no-console
-        console.log(breed);
-
         state.commit('setBreed', breed);
 
         dogsApi.getListAvatarBreed(breed)
-            .then(res => {
-                state.commit('setBreedList', res);
-            })
+        .then(res => {
+            state.commit('setBreedList', res);
+        })
     }
 };
 
@@ -39,10 +33,7 @@ const mutations = {
     setBreedList(state, list){
         state.breedList = list;
     },
-
-
 };
-
 
 export default {
     namespaced: true,

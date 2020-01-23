@@ -10,43 +10,28 @@
 </template>
 
 <script>
-    import AppDogListElem from "./main/dogList/AppDogListElem";
-
-    import {mapState, mapActions, mapMutations} from "vuex";
-
-    import store from '../store'
+    import AppDogListElem from "./dogList/AppDogListElem";
+    import store from '../../store'
 
     export default {
         name: "AppBreedList",
-
         computed: {
-            ...mapState({
-                dogsList() {
-                    return this.$store.state.breed.breedList;
-                }
-            }),
-        },
-        methods:{
-          ...mapActions({
-              updateBreedList: 'breed/updateList',
-          }),
-            ...mapMutations({
-                setBreed: 'breed/setBreed',
-            })
+            dogsList() {
+                return store.state.breed.breedList;
+            }
         },
         beforeRouteEnter (to, from, next) {
 
             store.dispatch('breed/updateList', to.params.bear);
-
             next();
         },
         beforeRouteUpdate (to, from, next) {
-            this.updateBreedList(to.params.bear);
+            store.dispatch('breed/updateList', to.params.bear);
             next();
         },
         beforeRouteLeave(to, from, next) {
-          this.setBreed('');
-          next();
+            store.commit('breed/setBreed', '');
+            next();
         },
         components: {AppDogListElem},
     }

@@ -1,17 +1,23 @@
 <template>
     <div class = "container">
-        <app-main/>
+        <app-sort-bar
+                v-show ="$router.currentRoute.path !== '/favorite'"
+        />
+
+        <router-view name="main"/>
     </div>
 </template>
 
 <script>
-    import AppMain from "../components/main/AppMain";
+
+    import AppSortBar from "../components/appSortBar/AppSortBar";
+
     export default {
         name: "ViewMain",
-        components: {AppMain}
+        components: {AppSortBar}
     }
 </script>
 
-<style scoped>
+<style>
 
 </style>

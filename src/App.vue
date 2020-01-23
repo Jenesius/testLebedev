@@ -42,18 +42,30 @@ export default {
 
     #app{
       font-family: 'IBM Plex Sans', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
 
+      text-align: center;
+      color: #2c3e50;
       min-height: 100vh;
     }
-  .container{
-    padding: 0 60px;
-    margin: auto;
+    .container{
+        width: 1280px;
+
+        margin: auto;
+    }
+  @media screen and (max-width: 1300px){
+    .container{
+      width: 800px;
+    }
   }
+    @media screen and (max-width: 820px){
+      .container{
+        padding: 0 20px;
+        width: 100%;
+      }
+    }
   body{
-    background: linear-gradient(180deg, #1B1A1F 0%, #111013 99.09%);
+    background: var(--black2);
   }
 </style>

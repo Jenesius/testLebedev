@@ -11,15 +11,11 @@
 <script>
     import AppDogListElem from "./dogList/AppDogListElem";
 
-    import {mapState} from "vuex";
-
     export default {
         computed:{
-            ...mapState({
-                dogsList() {
-                    return this.$store.state.dogs.dogsList;
-                }
-            }),
+            dogsList() {
+                return this.$store.state.dogs.dogsList;
+            }
         },
         name: "AppMainDogsList",
         components: {AppDogListElem},

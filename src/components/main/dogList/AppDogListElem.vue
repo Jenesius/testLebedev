@@ -1,5 +1,5 @@
 <template>
-    <div class = "dog-list-elem" :style = "backgroud">
+    <div class = "dog-list-elem" :style = "background">
         <i class="fa " aria-hidden="true"
            :class="activeIco"
            @click = "updateFavorite({name:name, url: urlAvatar})"
@@ -9,19 +9,17 @@
 </template>
 
 <script>
+    import {mapMutations} from 'vuex'
     import dogsApi from "../../../assets/js/dogsApi";
 
-    import {mapMutations} from 'vuex'
     export default {
         props:{
             name: String,
-            url: {
-                type: String,
-            },
+            url: String,
         },
         data: function(){
             return {
-                urlAvatar: String,
+                urlAvatar: this.url,
                 isFavorite: false,
             }
         },
@@ -34,26 +32,22 @@
             activeIco: function(){
                 let _tmp =this.$store.state.favorite.favoriteArray.findIndex(elem => elem.url === this.urlAvatar);
 
-
                 if(_tmp !== -1){
                     return 'fa-heart';
                 } else {
                     return 'fa-heart-o';
                 }
             },
-            backgroud: function(){
+            background: function(){
                 return `background: url(${this.urlAvatar}) no-repeat center/cover`;
             }
         },
-        name: "AppDogListElem",
         async mounted() {
-            this.urlAvatar = this.url;
-
             if (this.urlAvatar === undefined){
-
                 this.urlAvatar = await dogsApi.getRandomAvatarBreed(this.name);
             }
-        }
+        },
+        name: "AppDogListElem",
     }
 </script>
 
@@ -73,8 +67,7 @@
         left: 25px;
         top: 25px;
 
-
-        color:white;
+        color:var(--white1);
         font-size: 29px;
     }
     .dog-name{
@@ -82,14 +75,10 @@
         right: 25px;
         bottom: 25px;
 
-        font-family: IBM Plex Sans;
         font-style: normal;
         font-weight: 600;
         font-size: 25px;
         line-height: 28px;
-        /* identical to box height, or 112% */
-
-        letter-spacing: 0.01em;
 
         color: var(--white1);
     }

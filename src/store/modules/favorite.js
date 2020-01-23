@@ -19,7 +19,6 @@ const actions = {
 
 //mutations
 const mutations = {
-
     remove(state, name){
         localStorage.removeFavorite(name);
         state.favoriteArray = localStorage.getList();
@@ -29,13 +28,10 @@ const mutations = {
         state.favoriteArray = localStorage.getList();
     },
     update(state, name){
-
         localStorage.updateFavorite(name);
         state.favoriteArray = localStorage.getList();
     }
-
 };
-
 
 export default {
     namespaced: true,

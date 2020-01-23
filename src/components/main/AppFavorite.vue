@@ -11,17 +11,14 @@
 </template>
 
 <script>
-  import {mapState} from 'vuex';
-  import AppDogListElem from "./main/dogList/AppDogListElem";
+    import AppDogListElem from "./dogList/AppDogListElem";
 
     export default {
         name: "AppFavorite",
         computed:{
-            ...mapState({
-                favoriteArray(state){
-                    return state.favorite.favoriteArray;
-                }
-            })
+            favoriteArray(){
+                return this.$store.state.favorite.favoriteArray;
+            }
         },
         components: {AppDogListElem},
     }

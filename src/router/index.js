@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import AppMainDogsList from "../components/main/AppMainDogsList";
-import AppFavorite from "../components/AppFavorite";
-import AppBreedList from "../components/AppBreedList"
+import AppFavorite from "../components/main/AppFavorite";
+import AppBreedList from "../components/main/AppBreed"
 
 
 Vue.use(VueRouter);
